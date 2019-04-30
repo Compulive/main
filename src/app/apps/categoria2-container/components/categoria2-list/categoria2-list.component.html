@@ -1,0 +1,43 @@
+<div class="col-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-2 col-lg-2">
+          <h4 class="card-title">Categorías 2</h4>
+        </div>
+        <div class="offset-8 col-md-2 col-lg-2">
+          <button type="button" class="btn btn-block btn-outline-info" (click)="openNewFormCategory2()">Nueva
+            Categoría 2
+          </button>
+        </div>
+      </div>
+      <br>
+      <div>
+        <table id="zero_config" class="table table-striped table-bordered table-sm">
+          <thead>
+          <tr>
+            <th>Código</th>
+            <th>Descripción</th>
+            <th>Desc. Corta</th>
+            <th>Opciones</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let cat2 of categorias2">
+            <td>{{cat2.categoria2_codigo}}</td>
+            <td>{{cat2.categoria2_descripcion}}</td>
+            <td>{{cat2.categoria2_descripcion_corta}}</td>
+            <td>
+              <button type="button" class="btn btn-danger btn-sm" (click)="delete(cat2)">
+                Eliminar
+              </button>
+              <button type="button" class="btn btn-success btn-sm" (click)="edit(cat2)">
+                Editar
+              </button>
+            </td>
+
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
