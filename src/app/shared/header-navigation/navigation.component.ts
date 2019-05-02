@@ -1,11 +1,15 @@
-import { Component, AfterViewInit, EventEmitter, Output } from '@angular/core';
+import {Component, AfterViewInit, EventEmitter, Output} from '@angular/core';
+import {WheezyService} from '../../../provider/wheezy.service';
+import {Router} from '@angular/router';
 import {
   NgbModal,
   ModalDismissReasons,
   NgbPanelChangeEvent,
   NgbCarouselConfig
 } from '@ng-bootstrap/ng-bootstrap';
-import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import {PerfectScrollbarConfigInterface} from 'ngx-perfect-scrollbar';
+import {json} from 'd3-request';
+
 declare var $: any;
 
 @Component({
@@ -18,8 +22,18 @@ export class NavigationComponent implements AfterViewInit {
   public config: PerfectScrollbarConfigInterface = {};
 
   public showSearch = false;
+  public error: string;
+  public usuario: any;
+  public correo: any;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private router: Router, private wheezyService: WheezyService, private modalService: NgbModal) {
+    this.usuario = localStorage.getItem('usuario').toString();
+    this.correo = localStorage.getItem('correo').toString();
+
+    console.log(this.usuario);
+
+
+  }
 
   // This is for Notifications
   notifications: Object[] = [
@@ -85,5 +99,22 @@ export class NavigationComponent implements AfterViewInit {
     }
   ];
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() {
+  }
+
+  public logout(): void {
+    this.wheezyService.get$('login').subscribe(response => {
+      if (response.success) {
+        this.router.navigate(['/authentication/login']);
+        localStorage.clear();
+      } else {
+        localStorage.clear();
+      }
+
+    }, error => {
+      this.error = error;
+    });
+
+
+  }
 }

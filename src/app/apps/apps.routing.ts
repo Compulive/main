@@ -6,6 +6,7 @@ import { TicketdetailsComponent } from './ticketdetails/ticketdetails.component'
 import { TaskboardComponent } from './taskboard/taskboard.component';
 import { FullcalendarComponent } from './fullcalendar/fullcalendar.component';
 import {Categoria2ContainerComponent} from './categoria2-container/categoria2-container.component';
+import {AlmacenContainerComponent} from './almacen-container/almacen-container.component';
 
 export const AppsRoutes: Routes = [
   {
@@ -41,6 +42,18 @@ export const AppsRoutes: Routes = [
           urls: [
             { title: 'Dashboard', url: '/dashboard' },
             { title: 'categoria 1' }
+          ]
+        }
+      },
+
+      {
+        path: 'almacen',
+        component: AlmacenContainerComponent,
+        data: {
+          title: 'Almacen',
+          urls: [
+            { title: 'Dashboard', url: '/dashboard' },
+            { title: 'Almacen' }
           ]
         }
       },

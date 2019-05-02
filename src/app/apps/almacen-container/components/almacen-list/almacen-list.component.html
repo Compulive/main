@@ -1,0 +1,50 @@
+<div class="col-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-2 col-lg-2">
+          <h4 class="card-title">Almacenes</h4>
+        </div>
+        <div class="offset-8 col-md-2 col-lg-2">
+          <button type="button" class="btn btn-block btn-outline-info" (click)="openNewFormAlmacen()">Nuevo Almacen
+          </button>
+        </div>
+      </div>
+      <br>
+      <div>
+        <table id="zero_config" class="table table-striped table-bordered table-sm">
+          <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Telefono</th>
+            <th>Oficina</th>
+            <th>Estado</th>
+            <th>Envio Sunat</th>
+            <th>Opciones</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let almacen of almacenes">
+            <td>{{almacen.almacen_nombre}}</td>
+            <td>{{almacen.almacen_direccion}}</td>
+            <td>{{almacen.almacen_telefono}}</td>
+            <td>{{almacen.oficina_nombre}}</td>
+            <td *ngIf="almacen.almacen_estado"><span class="label label-success"><b>Activo</b></span></td>
+            <td *ngIf="!almacen.almacen_estado"><span class="label label-danger"><b>Inactivo</b></span></td>
+            <td *ngIf="almacen.almacen_emisor_sunat"><span class="label label-success"><b>Activo</b></span></td>
+            <td *ngIf="!almacen.almacen_emisor_sunat"><span class="label label-danger"><b>Inactivo</b></span></td>
+            <td>
+              <button type="button" class="btn btn-danger btn-sm" (click)="delete(almacen)">
+                Eliminar
+              </button>
+              <button type="button" class="btn btn-success btn-sm" (click)="edit(almacen)">
+                Editar
+              </button>
+            </td>
+
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
