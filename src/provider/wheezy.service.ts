@@ -5,7 +5,7 @@ import {HttpHeaders} from '@angular/common/http';
 
 @Injectable()
 export class WheezyService {
-  url = 'http://127.0.0.1:8000/api/';
+  url = 'http://192.168.20.248:8000/api/';
 
   constructor(private http: HttpClient) {
   }

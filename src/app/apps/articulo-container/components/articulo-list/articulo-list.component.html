@@ -1,0 +1,108 @@
+<div class="col-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-2 col-lg-2">
+          <h4 class="card-title">Articulos</h4>
+        </div>
+        <div class="offset-8 col-md-2 col-lg-2">
+          <button type="button" class="btn btn-block btn-outline-info" (click)="openNewFormArticulo()">Nuevo
+            Articulo
+          </button>
+        </div>
+      </div>
+      <br>
+      <div>
+        <table id="zero_config" class="table table-striped table-bordered table-sm">
+          <thead>
+          <tr class="text-center">
+            <th>codigo</th>
+            <th>nombre</th>
+            <th>no_stock_item</th>
+            <th>codigo_ean</th>
+            <th>codigo_barra_ventas</th>
+            <th>codigo_barra_compras</th>
+            <th>factor_compra</th>
+            <th>factor_venta</th>
+            <th>peso</th>
+            <th>volumen</th>
+            <th>stock_minimo</th>
+            <th>stock_maximo</th>
+            <th>aplicar_isc</th>
+            <th>porcentaje_isc</th>
+            <th>fecha_ingreso</th>
+            <th>ultima_compra</th>
+            <th>ultimo_costo_promedio</th>
+            <th>costo_promedio_soles</th>
+            <th>costo_promedio_dolares</th>
+            <th>imagen</th>
+            <th>nombre</th>
+            <th>tipo_detraccion_nombre</th>
+            <th>um_compra</th>
+            <th>um_venta</th>
+            <th>cuenta_compras</th>
+            <th>cuenta_venta</th>
+            <th>cuenta_devolucion</th>
+            <th>estado</th>
+            <th>cuenta_isc</th>
+            <th>categoria1</th>
+            <th>categoria2</th>
+            <th>categoria3</th>
+            <th>categoria4</th>
+            <th>categoria5</th>
+            <th>codigo_qr</th>
+            <th>opciones</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let articulo of articulos" class="text-center">
+            <td>{{articulo.articulo_codigo}}</td>
+            <td>{{articulo.articulo_nombre}}</td>
+            <td>{{articulo.articulo_no_stock_item}}</td>
+            <td>{{articulo.articulo_codigo_ean}}</td>
+            <td>{{articulo.articulo_codigo_barra_ventas}}</td>
+            <td>{{articulo.articulo_codigo_barra_compras}}</td>
+            <td>{{articulo.articulo_factor_compra}}</td>
+            <td>{{articulo.articulo_factor_venta}}</td>
+            <td>{{articulo.articulo_peso}}</td>
+            <td>{{articulo.articulo_volumen}}</td>
+            <td>{{articulo.articulo_stock_minimo}}</td>
+            <td>{{articulo.articulo_stock_maximo}}</td>
+            <td>{{articulo.articulo_aplicar_isc}}</td>
+            <td>{{articulo.articulo_porcentaje_isc}}</td>
+            <td>{{articulo.articulo_fecha_ingreso}}</td>
+            <td>{{articulo.articulo_ultima_compra}}</td>
+            <td>{{articulo.articulo_ultimo_costo_promedio}}</td>
+            <td>{{articulo.articulo_costo_promedio_soles}}</td>
+            <td>{{articulo.articulo_costo_promedio_dolares}}</td>
+            <td>{{articulo.articulo_imagen}}</td>
+            <td>{{articulo.proveedor_nombre}}</td>
+            <td>{{articulo.tipo_detraccion_nombre}}</td>
+            <td>{{articulo.artitulo_um_compra}}</td>
+            <td>{{articulo.artitulo_um_venta}}</td>
+            <td>{{articulo.articulo_cuenta_compras}}</td>
+            <td>{{articulo.articulo_cuenta_venta}}</td>
+            <td>{{articulo.articulo_cuenta_devolucion}}</td>
+            <td>{{articulo.articulo_estado}}</td>
+            <td>{{articulo.articulo_cuenta_isc}}</td>
+            <td>{{articulo.articulo_categoria1}}</td>
+            <td>{{articulo.articulo_categoria2}}</td>
+            <td>{{articulo.articulo_categoria3}}</td>
+            <td>{{articulo.articulo_categoria4}}</td>
+            <td>{{articulo.articulo_categoria5}}</td>
+            <td>{{articulo.articulo_codigo_qr}}</td>
+            <td>
+              <button type="button" class="btn btn-danger btn-sm" (click)="delete(articulo)">
+                Eliminar
+              </button>
+              <button type="button" class="btn btn-success btn-sm" (click)="edit(articulo)">
+                Editar
+              </button>
+            </td>
+
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+

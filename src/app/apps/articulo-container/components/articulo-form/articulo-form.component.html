@@ -1,0 +1,388 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title"> Nuevo Articulo</h4>
+  <button type="button" class="close" aria-label="Close" (click)="cancelform()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <ngb-tabset #t="ngbTabset">
+    <ngb-tab id="tab-selectbyid1">
+      <ng-template ngbTabTitle>tab 1</ng-template>
+      <ng-template ngbTabContent>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_codigo" class="col-md-3 text-right control-label col-form-label">Código</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_codigo" placeholder="Código"
+                     [(ngModel)]="articulo.articulo_codigo">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="articulo_nombre" class="col-sm-3 text-right control-label col-form-label">Articulo
+              Nombre</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_nombre" placeholder="Articulo Nombre"
+                     [(ngModel)]="articulo.articulo_nombre">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_proveedor_id"
+                   class="col-sm-3 text-right control-label col-form-label">proveedor</label>
+            <div class="col-sm-9">
+              <select [(ngModel)]="articulo.articulo_proveedor_id" class="form-control" id="articulo_proveedor_id">
+                <option *ngFor="let proveedor of proveedores"
+                        [ngValue]="proveedor.proveedor_id">{{proveedor.proveedor_nombre}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="articulo_no_stock_item" class="col-sm-3 text-right control-label col-form-label">no stock
+              item</label>
+            <div class="col-sm-9">
+              <input type="checkbox" class="form-control" id="articulo_no_stock_item"
+                     [(ngModel)]="articulo.articulo_no_stock_item">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_tipo_percenpcion_id" class="col-sm-3 text-right control-label col-form-label">Tipo
+              Percenpcion</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_tipo_percenpcion_id" placeholder="Tipo Percenpcion"
+                     [(ngModel)]="articulo.articulo_tipo_percenpcion_id">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="articulo_tipo_detraccion_id" class="col-sm-3 text-right control-label col-form-label">Tipo
+              detraccion</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_tipo_detraccion_id" placeholder="Tipo detraccion"
+                     [(ngModel)]="articulo.articulo_tipo_detraccion_id">
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab id="tab-selectbyid2">
+      <ng-template ngbTabTitle>tab 2</ng-template>
+      <ng-template ngbTabContent>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_codigo_ean" class="col-md-3 text-right control-label col-form-label">articulo codigo
+              ean</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_codigo_ean" placeholder="articulo codigo ean"
+                     [(ngModel)]="articulo.articulo_codigo_ean">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="articulo_codigo_barra_ventas" class="col-sm-3 text-right control-label col-form-label">codigo
+              barra ventas</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_codigo_barra_ventas"
+                     placeholder="codigo barra ventas"
+                     [(ngModel)]="articulo.articulo_codigo_barra_ventas">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_codigo_barra_compras" class="col-md-3 text-right control-label col-form-label">codigo
+              barra compras</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_codigo_barra_compras"
+                     placeholder="codigo barra compras"
+                     [(ngModel)]="articulo.articulo_codigo_barra_compras">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="artitulo_um_compra_id" class="col-sm-3 text-right control-label col-form-label">Unidad Medida
+              Compra</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="artitulo_um_compra_id" placeholder="Unidad Medida Compra"
+                     [(ngModel)]="articulo.artitulo_um_compra_id">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_um_venta_id" class="col-md-3 text-right control-label col-form-label">Unidad Medida
+              Venta</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_um_venta_id" placeholder="Unidad Medida Venta"
+                     [(ngModel)]="articulo.articulo_um_venta_id">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="articulo_factor_compra" class="col-sm-3 text-right control-label col-form-label">factor
+              compra</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_factor_compra" placeholder="factor compra"
+                     [(ngModel)]="articulo.articulo_factor_compra">
+            </div>
+          </div>
+        </div>
+
+      </ng-template>
+    </ngb-tab>
+
+    <ngb-tab id="tab-selectbyid3">
+      <ng-template ngbTabTitle>tab 3</ng-template>
+      <ng-template ngbTabContent>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_factor_venta" class="col-md-3 text-right control-label col-form-label">factor
+              venta</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_factor_venta" placeholder="factor venta"
+                     [(ngModel)]="articulo.articulo_factor_venta">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="articulo_peso" class="col-sm-3 text-right control-label col-form-label">articulo peso</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_peso" placeholder="articulo peso"
+                     [(ngModel)]="articulo.articulo_peso">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_volumen" class="col-md-3 text-right control-label col-form-label">volumen</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_volumen" placeholder="volumen"
+                     [(ngModel)]="articulo.articulo_volumen">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="articulo_stock_minimo" class="col-sm-3 text-right control-label col-form-label">stock
+              minimo</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_stock_minimo" placeholder="stock minimo"
+                     [(ngModel)]="articulo.articulo_stock_minimo">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_stock_maximo" class="col-md-3 text-right control-label col-form-label">stock
+              maximo</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_stock_maximo" placeholder="stock maximo"
+                     [(ngModel)]="articulo.articulo_stock_maximo">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="articulo_aplicar_isc" class="col-sm-3 text-right control-label col-form-label">aplicar
+              isc</label>
+            <div class="col-sm-9">
+              <input type="checkbox" class="form-control" id="articulo_aplicar_isc" placeholder="aplicar isc"
+                     [(ngModel)]="articulo.articulo_aplicar_isc">
+            </div>
+          </div>
+        </div>
+
+      </ng-template>
+    </ngb-tab>
+
+    <ngb-tab id="tab-selectbyid4">
+      <ng-template ngbTabTitle>tab 4</ng-template>
+      <ng-template ngbTabContent>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_porcentaje_isc" class="col-md-3 text-right control-label col-form-label">porcentaje isc
+            </label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_porcentaje_isc" placeholder="porcentaje isc"
+                     [(ngModel)]="articulo.articulo_porcentaje_isc">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="articulo_cuenta_compras_id" class="col-sm-3 text-right control-label col-form-label">cuenta
+              compra</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_cuenta_compras_id" placeholder="cuenta_compra"
+                     [(ngModel)]="articulo.articulo_cuenta_compras_id">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_cuenta_venta_id" class="col-md-3 text-right control-label col-form-label">cuenta
+              venta</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_cuenta_venta_id" placeholder="cuenta venta"
+                     [(ngModel)]="articulo.articulo_cuenta_venta_id">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="articulo_cuenta_devolucion_id" class="col-sm-3 text-right control-label col-form-label">cuenta
+              devolucion</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_cuenta_devolucion_id" placeholder="cuenta devolucion"
+                     [(ngModel)]="articulo.articulo_cuenta_devolucion_id">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_estado_id" class="col-md-3 text-right control-label col-form-label">estado
+            </label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_estado_id" placeholder="estado"
+                     [(ngModel)]="articulo.articulo_estado_id">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="articulo_cuenta_isc" class="col-sm-3 text-right control-label col-form-label">cuenta isc</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_cuenta_isc" placeholder="cuenta isc"
+                     [(ngModel)]="articulo.articulo_cuenta_isc">
+            </div>
+          </div>
+        </div>
+
+      </ng-template>
+    </ngb-tab>
+
+
+    <ngb-tab id="tab-selectbyid5">
+      <ng-template ngbTabTitle>tab 5</ng-template>
+      <ng-template ngbTabContent>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_fecha_ingreso" class="col-md-3 text-right control-label col-form-label">fecha ingreso
+            </label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_fecha_ingreso" placeholder="fecha ingreso"
+                     [(ngModel)]="articulo.articulo_fecha_ingreso">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="articulo_ultima_compra" class="col-sm-3 text-right control-label col-form-label">ultima
+              compra</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_ultima_compra" placeholder="ultima compra"
+                     [(ngModel)]="articulo.articulo_ultima_compra">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_ultimo_costo_promedio" class="col-md-3 text-right control-label col-form-label">ultimo
+              costo promedio</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_ultimo_costo_promedio"
+                     placeholder="ultimo costo promedio"
+                     [(ngModel)]="articulo.articulo_ultimo_costo_promedio">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="articulo_costo_promedio_soles" class="col-sm-3 text-right control-label col-form-label">costo
+              promedio soles</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_costo_promedio_soles"
+                     placeholder="costo promedio soles"
+                     [(ngModel)]="articulo.articulo_costo_promedio_soles">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_costo_promedio_dolares" class="col-md-3 text-right control-label col-form-label">costo
+              promedio dolares
+            </label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_costo_promedio_dolares"
+                     placeholder="costo promedio dolares"
+                     [(ngModel)]="articulo.articulo_costo_promedio_dolares">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="articulo_imagen" class="col-sm-3 text-right control-label col-form-label">articulo
+              imagen</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_imagen" placeholder="articulo imagen"
+                     [(ngModel)]="articulo.articulo_imagen">
+            </div>
+          </div>
+        </div>
+
+      </ng-template>
+    </ngb-tab>
+
+    <ngb-tab id="tab-selectbyid6">
+      <ng-template ngbTabTitle>tab 6</ng-template>
+      <ng-template ngbTabContent>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_categoria1_id" class="col-md-3 text-right control-label col-form-label">categoria1
+            </label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_categoria1_id" placeholder="categoria1"
+                     [(ngModel)]="articulo.articulo_categoria1_id">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="articulo_categoria2_id"
+                   class="col-sm-3 text-right control-label col-form-label">categoria2</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_categoria2_id" placeholder="categoria2"
+                     [(ngModel)]="articulo.articulo_categoria2_id">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_categoria3_id"
+                   class="col-md-3 text-right control-label col-form-label">categoria3</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_categoria3_id" placeholder="categoria3"
+                     [(ngModel)]="articulo.articulo_categoria3_id">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="articulo_categoria4_id"
+                   class="col-sm-3 text-right control-label col-form-label">categoria4</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_categoria4_id" placeholder="categoria4"
+                     [(ngModel)]="articulo.articulo_categoria4_id">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="articulo_categoria5_id" class="col-md-3 text-right control-label col-form-label">categoria5
+            </label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_categoria5_id" placeholder="categoria5"
+                     [(ngModel)]="articulo.articulo_categoria5_id">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="articulo_codigo_qr" class="col-sm-3 text-right control-label col-form-label">codigo qr</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="articulo_codigo_qr" placeholder="codigo qr"
+                     [(ngModel)]="articulo.articulo_codigo_qr">
+            </div>
+          </div>
+        </div>
+
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-info" (click)="save()"
+  >
+    Save
+  </button>
+  <button type="submit" class="btn btn-danger waves-effect waves-light" (click)="cancelform()">Cancel
+  </button>
+</div>

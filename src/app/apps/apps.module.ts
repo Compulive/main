@@ -23,6 +23,11 @@ import {AlmacenContainerComponent} from './almacen-container/almacen-container.c
 import {AlmacenListComponent} from './almacen-container/components/almacen-list/almacen-list.component';
 import {AlmacenFormComponent} from './almacen-container/components/almacen-form/almacen-form.component';
 import {AlmacenEditComponent} from './almacen-container/components/almacen-edit/almacen-edit.component';
+import {ArticuloContainerComponent} from './articulo-container/articulo-container.component';
+import {ArticuloListComponent} from './articulo-container/components/articulo-list/articulo-list.component';
+import {ArticuloFormComponent} from './articulo-container/components/articulo-form/articulo-form.component';
+import {ArticuloEditComponent} from './articulo-container/components/articulo-edit/articulo-edit.component';
+import { ProveedorContainerComponent } from './proveedor-container/proveedor-container.component';
 
 @NgModule({
   imports: [
@@ -51,8 +56,17 @@ import {AlmacenEditComponent} from './almacen-container/components/almacen-edit/
     AlmacenContainerComponent,
     AlmacenListComponent,
     AlmacenFormComponent,
-    AlmacenEditComponent
-  ], entryComponents: [Categoria2FormComponent, Categoria2EditComponent, AlmacenFormComponent, AlmacenEditComponent]
+    AlmacenEditComponent,
+    ArticuloContainerComponent,
+    ArticuloListComponent,
+    ArticuloFormComponent,
+    ArticuloEditComponent,
+    ProveedorContainerComponent
+  ], entryComponents: [Categoria2FormComponent,
+    Categoria2EditComponent,
+    AlmacenFormComponent,
+    AlmacenEditComponent,
+    ArticuloFormComponent]
 })
 export class AppsModule {
 }
